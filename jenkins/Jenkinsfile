@@ -32,7 +32,8 @@ pipeline{
     }
     stages{
         stage('build'){
-            steps{                
+            steps{
+                echo "Running mvn"               
                 sh 'mvn clean package'
             }
             post {
