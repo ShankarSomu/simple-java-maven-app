@@ -27,7 +27,9 @@
 //     }
 // }
 pipeline{
-    agent  none
+    agent {
+        label 'DevNode'
+    }
     stages{
         stage('build'){
             steps{
