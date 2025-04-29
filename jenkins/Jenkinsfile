@@ -32,20 +32,9 @@ pipeline{
     }
     stages{
         stage('build'){
-            steps{
-                echo "Build Stage"
+            steps{                
+                sh 'mvn clean package'
             }
-        }
-        stage('test'){
-            steps {
-            echo "This is test Stage"
-        }
-        }   
-        stage('deploy'){
-            steps{
-                echo "this is Deploy Stage"
-            }
-            
         }
     }
 }
