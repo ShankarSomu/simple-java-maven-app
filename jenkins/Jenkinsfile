@@ -33,6 +33,7 @@ pipeline{
     stages{
         stage('build'){
             steps{
+                echo "checking push"
                 echo "Running mvn"               
                 sh 'mvn clean package'
             }
