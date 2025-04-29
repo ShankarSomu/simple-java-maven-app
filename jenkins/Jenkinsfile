@@ -1,28 +1,49 @@
-pipeline {
-    agent any
-    options {
-        skipStagesAfterUnstable()
-    }
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B -DskipTests clean package'
+// pipeline {
+//     agent any
+//     options {
+//         skipStagesAfterUnstable()
+//     }
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 sh 'mvn -B -DskipTests clean package'
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 sh 'mvn test'
+//             }
+//             post {
+//                 always {
+//                     junit 'target/surefire-reports/*.xml'
+//                 }
+//             }
+//         }
+//         stage('Deliver') { 
+//             steps {
+//                 sh './jenkins/scripts/deliver.sh' 
+//             }
+//         }
+//     }
+// }
+pipeline{
+    agent  none
+    stages{
+        stage('build'){
+            steps{
+                echo "Build Stage"
             }
         }
-        stage('Test') {
+        stage('test'){
             steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+            echo "This is test Stage"
         }
-        stage('Deliver') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh' 
+        }   
+        stage('deploy'){
+            steps{
+                echo "this is Deploy Stage"
             }
+            
         }
     }
 }
