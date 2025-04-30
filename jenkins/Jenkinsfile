@@ -30,6 +30,10 @@ pipeline{
     agent {
         label 'DevNode'
     }
+    tools {
+        maven 'MyMaven'
+    }
+
     stages{
         stage('build'){
             steps{
